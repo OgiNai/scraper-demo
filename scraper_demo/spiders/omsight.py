@@ -39,6 +39,7 @@ class OmsightSpider(scrapy.Spider):
     def parse_product(self, response: Response) -> Iterator[dict[str, Any]]:
         """Extract deterministic product data and variant data."""
 
+        """
         self.logger.info(
             "Product response: status=%s content_type=%s length=%s ldjson_scripts=%s",
             response.status,
@@ -78,6 +79,7 @@ class OmsightSpider(scrapy.Spider):
                     index,
                     exc,
                 )
+        """
 
         product = self._extract_schema_product(response)
 
@@ -93,7 +95,7 @@ class OmsightSpider(scrapy.Spider):
         yield {
             **record.to_dict(),
             "variants": self._extract_variants(response),
-            "source_text": self._extract_source_text(response),
+            "description": self._extract_description(response),
         }
 
     @staticmethod
@@ -101,7 +103,8 @@ class OmsightSpider(scrapy.Spider):
         response: Response,
     ) -> dict[str, Any] | None:
         """Return the Schema.org Product object from JSON-LD."""
-        for script in response.css('script[type="application/ld+json"]').getall():
+
+        for script in response.css('script[type="application/ld+json"]::text').getall():
             try:
                 data = json.loads(script)
             except json.JSONDecodeError:
@@ -119,6 +122,7 @@ class OmsightSpider(scrapy.Spider):
         data: Any,
     ) -> dict[str, Any] | None:
         """Find a Product object inside arbitrary JSON-LD."""
+
         if isinstance(data, dict):
             type_value = data.get("@type")
 
@@ -159,6 +163,7 @@ class OmsightSpider(scrapy.Spider):
         response_url: str,
     ) -> ProductRecord:
         """Map Schema.org Product data into our canonical record."""
+
         name = OmsightSpider._clean_string(product.get("name"))
         url = OmsightSpider._clean_string(product.get("url")) or response_url
 
@@ -358,33 +363,32 @@ class OmsightSpider(scrapy.Spider):
         return name.replace("-", "_")
 
     @staticmethod
-    def _extract_source_text(response: Response) -> str:
-        """
-        Extract visible product content for the future LLM extraction stage.
+    def _extract_description(response: Response) -> str:
+        """Extract product description and additional information."""
 
-        This is deliberately separate from ProductRecord. The LLM will later
-        receive this text to extract semantic attributes such as materials,
-        features, activities, performance properties and sustainability claims.
-        """
-        selectors = [
-            ".product-info",
-            ".product-main",
-            ".product-page-sections",
-            ".entry-content",
-        ]
+        sections = (
+            ("Description", "#accordion-description-content"),
+            (
+                "",
+                "#accordion-additional_information",
+            ),
+        )
 
-        chunks: list[str] = []
+        parts: list[str] = []
 
-        for selector in selectors:
-            for element in response.css(selector):
-                text = " ".join(element.css("::text").getall()).strip()
+        for heading, selector in sections:
+            element = response.css(selector)
 
-                if text:
-                    chunks.append(text)
+            if not element:
+                continue
 
-        if not chunks:
-            chunks = response.css("body ::text").getall()
+            text_parts = element.css("::text").getall()
 
-        cleaned_lines = [" ".join(text.split()) for text in chunks if text.strip()]
+            text = " ".join(
+                " ".join(text.split()) for text in text_parts if text.strip()
+            )
 
-        return "\n".join(dict.fromkeys(cleaned_lines))
+            if text:
+                parts.append(f"{heading}:\n{text}")
+
+        return "\n\n".join(parts)
