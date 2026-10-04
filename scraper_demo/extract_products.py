@@ -12,14 +12,14 @@ OUTPUT_PATH = Path("output/llm_products.jsonl")
 
 
 def main() -> None:
-    api_key = os.environ.get("OPENAI_API_KEY")
-    model = os.environ.get("OPENAI_MODEL")
+    api_key = os.environ.get("GEMINI_API_KEY")
+    model = os.environ.get("GEMINI_MODEL")
 
     if not api_key:
-        raise RuntimeError("OPENAI_API_KEY environment variable is required.")
+        raise RuntimeError("GEMINI_API_KEY environment variable is required.")
 
     if not model:
-        raise RuntimeError("OPENAI_MODEL environment variable is required.")
+        raise RuntimeError("GEMINI_MODEL environment variable is required.")
 
     products: list[dict[str, Any]] = []
 
