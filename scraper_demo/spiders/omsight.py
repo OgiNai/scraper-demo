@@ -47,6 +47,38 @@ class OmsightSpider(scrapy.Spider):
             len(response.css('script[type="application/ld+json"]')),
         )
 
+        for index, script in enumerate(
+            response.css('script[type="application/ld+json"]::text').getall(),
+            start=1,
+        ):
+            try:
+                data = json.loads(script)
+
+                if isinstance(data, dict):
+                    self.logger.info(
+                        "JSON-LD #%s: top_level_type=%r graph_types=%r",
+                        index,
+                        data.get("@type"),
+                        [
+                            item.get("@type")
+                            for item in data.get("@graph", [])
+                            if isinstance(item, dict)
+                        ],
+                    )
+                else:
+                    self.logger.info(
+                        "JSON-LD #%s: root_type=%s",
+                        index,
+                        type(data).__name__,
+                    )
+
+            except json.JSONDecodeError as exc:
+                self.logger.warning(
+                    "JSON-LD #%s: invalid JSON: %s",
+                    index,
+                    exc,
+                )
+
         product = self._extract_schema_product(response)
 
         if product is None:
