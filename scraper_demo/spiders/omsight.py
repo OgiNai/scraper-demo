@@ -4,8 +4,9 @@ from collections.abc import Iterator
 from typing import Any, ClassVar
 
 import scrapy
-from scraper_demo.items import ProductRecord
 from scrapy.http import Response
+
+from scraper_demo.items import ProductRecord
 
 
 class OmsightSpider(scrapy.Spider):
@@ -37,6 +38,15 @@ class OmsightSpider(scrapy.Spider):
 
     def parse_product(self, response: Response) -> Iterator[dict[str, Any]]:
         """Extract deterministic product data and variant data."""
+
+        self.logger.info(
+            "Product response: status=%s content_type=%s length=%s ldjson_scripts=%s",
+            response.status,
+            response.headers.get("Content-Type"),
+            len(response.text),
+            len(response.css('script[type="application/ld+json"]')),
+        )
+
         product = self._extract_schema_product(response)
 
         if product is None:
@@ -78,7 +88,12 @@ class OmsightSpider(scrapy.Spider):
     ) -> dict[str, Any] | None:
         """Find a Product object inside arbitrary JSON-LD."""
         if isinstance(data, dict):
-            if data.get("@type") == "Product":
+            type_value = data.get("@type")
+
+            if type_value == "Product":
+                return data
+
+            if isinstance(type_value, list) and "Product" in type_value:
                 return data
 
             graph = data.get("@graph")
