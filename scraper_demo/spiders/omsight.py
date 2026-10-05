@@ -1,7 +1,7 @@
 import html
 import json
 from collections.abc import Iterator
-from typing import Any, ClassVar
+from typing import Any
 
 import scrapy
 from scrapy.http import Response
@@ -11,13 +11,8 @@ from scraper_demo.items import ProductRecord
 
 class OmsightSpider(scrapy.Spider):
     name = "omsight"
-    allowed_domains: ClassVar[list[str]] = ["omsight.com"]
 
-    start_urls: ClassVar[list[str]] = [
-        "https://omsight.com/jackets/",
-    ]
-
-    CATEGORY_LINK_LABELS: ClassVar[frozenset[str]] = frozenset(
+    CATEGORY_LINK_LABELS: frozenset[str] = frozenset(
         {
             "ski pants & bib’s",
             "urban & climbing pants",
@@ -39,10 +34,10 @@ class OmsightSpider(scrapy.Spider):
         for url in self._extract_category_urls(response):
             yield scrapy.Request(
                 url,
-                callback=self.parse_category,
+                callback=self.parse_category_page,
             )
 
-    def parse_category(self, response: Response) -> Iterator[scrapy.Request]:
+    def parse_category_page(self, response: Response) -> Iterator[scrapy.Request]:
         """Discover product pages from a product-category page."""
         product_urls: set[str] = set()
 
@@ -63,13 +58,19 @@ class OmsightSpider(scrapy.Spider):
         if next_page:
             yield scrapy.Request(
                 response.urljoin(next_page),
-                callback=self.parse_category,
+                callback=self.parse_category_page,
             )
 
     def parse_product(self, response: Response) -> Iterator[dict[str, Any]]:
         """Extract deterministic product data and variant data."""
 
-        product = self._extract_schema_product(response)
+        for script in response.css('script[type="application/ld+json"]::text').getall():
+            try:
+                data = json.loads(script)
+            except json.JSONDecodeError:
+                continue
+
+            product = OmsightSpider._find_product_object(data)
 
         if product is None:
             self.logger.warning(
@@ -106,25 +107,6 @@ class OmsightSpider(scrapy.Spider):
             category_urls.add(response.urljoin(href).split("#", maxsplit=1)[0])
 
         return sorted(category_urls)
-
-    @staticmethod
-    def _extract_schema_product(
-        response: Response,
-    ) -> dict[str, Any] | None:
-        """Return the Schema.org Product object from JSON-LD."""
-
-        for script in response.css('script[type="application/ld+json"]::text').getall():
-            try:
-                data = json.loads(script)
-            except json.JSONDecodeError:
-                continue
-
-            product = OmsightSpider._find_product_object(data)
-
-            if product is not None:
-                return product
-
-        return None
 
     @staticmethod
     def _find_product_object(
