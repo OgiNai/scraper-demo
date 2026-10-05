@@ -1,0 +1,1406 @@
+{
+  "summary": {
+    "golden_count": 30,
+    "actual_count": 148,
+    "matched_count": 30,
+    "missing_count": 0,
+    "unexpected_count": 118,
+    "duplicate_golden_count": 0,
+    "duplicate_actual_count": 0,
+    "overall_score": 0.5205
+  },
+  "field_scores": {
+    "name": 0.9667,
+    "url": 1.0,
+    "brand": 1.0,
+    "price": 0.0,
+    "currency": 0.0,
+    "availability": 0.0,
+    "image": 0.0
+  },
+  "missing_skus": [],
+  "unexpected_skus": [
+    "1733",
+    "1739",
+    "1819",
+    "1848",
+    "1852",
+    "2035",
+    "2046",
+    "2095",
+    "2105",
+    "2127",
+    "2136",
+    "2257",
+    "2336",
+    "2418",
+    "2424",
+    "2429",
+    "2440",
+    "2487",
+    "2492",
+    "2495",
+    "2497",
+    "2526",
+    "2530",
+    "2533",
+    "2538",
+    "2543",
+    "2549",
+    "2576",
+    "2582",
+    "2586",
+    "2588",
+    "2590",
+    "2592",
+    "2593",
+    "2599",
+    "2610",
+    "2672",
+    "3083",
+    "3091",
+    "3139",
+    "3149",
+    "3199",
+    "3248",
+    "3252",
+    "3256",
+    "3262",
+    "3266",
+    "3271",
+    "3275",
+    "3315",
+    "3321",
+    "3329",
+    "3331",
+    "3333",
+    "3335",
+    "3365",
+    "3368",
+    "3370",
+    "3372",
+    "3374",
+    "3651",
+    "3674",
+    "3698",
+    "3710",
+    "3950",
+    "3957",
+    "3966",
+    "3992",
+    "4069",
+    "4222",
+    "4244",
+    "4250",
+    "4253",
+    "4259",
+    "4263",
+    "4266",
+    "4269",
+    "4431",
+    "4600",
+    "4750",
+    "4766",
+    "5132",
+    "5167",
+    "5177",
+    "5184",
+    "5187",
+    "5192",
+    "5195",
+    "5197",
+    "5199",
+    "5201",
+    "5212",
+    "5230",
+    "5259",
+    "5265",
+    "5266",
+    "5299",
+    "5313",
+    "5330",
+    "5514",
+    "6231",
+    "6487",
+    "6560",
+    "6893",
+    "7166",
+    "7439",
+    "7643",
+    "7671",
+    "7672",
+    "7803",
+    "7811",
+    "8079",
+    "8101",
+    "8831",
+    "8974",
+    "8987",
+    "9002",
+    "9009"
+  ],
+  "duplicate_golden_skus": [],
+  "duplicate_actual_skus": [],
+  "products": [
+    {
+      "sku": "2026",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "ONSIGHT",
+          "actual": "ONSIGHT",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/onsight-purple-orange/",
+          "actual": "https://omsight.com/product/onsight-purple-orange/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 62.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2017/06/onsight-girl-long-pant-in-purple-front.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "2057",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "SANA",
+          "actual": "SANA",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/sana-brown/",
+          "actual": "https://omsight.com/product/sana-brown/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 54.0,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2017/06/Sana-Long-Pant-Brown-Front.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "2231",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "URBAN SHORTS",
+          "actual": "URBAN SHORTS",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/urban-shorts/",
+          "actual": "https://omsight.com/product/urban-shorts/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 40.5,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2017/07/Urban-Shorts-Blue-Front.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "2362",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Rockit X",
+          "actual": "Rockit X",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/rockit-x/",
+          "actual": "https://omsight.com/product/rockit-x/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 67.5,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2017/10/RockitX-Front-Orange.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "2528",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Whitney",
+          "actual": "Whitney",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/whitney/",
+          "actual": "https://omsight.com/product/whitney/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 19.8,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2017/11/DSC_5997.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "2594",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Merino Beanie",
+          "actual": "Merino Beanie",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/merino-beanie/",
+          "actual": "https://omsight.com/product/merino-beanie/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 19.8,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2017/11/merino-hat.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "2644",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Onsight Anorak",
+          "actual": "Onsight Anorak",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/onsight-anorak/",
+          "actual": "https://omsight.com/product/onsight-anorak/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 89.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2017/12/Anu-Front.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "3087",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Flow",
+          "actual": "Flow",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/flow-enduro-pants/",
+          "actual": "https://omsight.com/product/flow-enduro-pants/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 53.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2018/03/Flow-Gray-Front.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "3324",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Rockit",
+          "actual": "Rockit",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/rockit/",
+          "actual": "https://omsight.com/product/rockit/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 31.5,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2018/08/RockitJ-Front-Orangel.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "3822",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Woolverine T-Shirt",
+          "actual": "Woolverine T-Shirt",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/woolvernite-t-shirt/",
+          "actual": "https://omsight.com/product/woolvernite-t-shirt/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 32.4,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2019/03/wool-with-logo.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4032",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Godai",
+          "actual": "Godai",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/godai-jacket/",
+          "actual": "https://omsight.com/product/godai-jacket/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 71.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2019/03/DSC_8240.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4055",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "SPARK",
+          "actual": "SPARK",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/spark/",
+          "actual": "https://omsight.com/product/spark/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 37.8,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2019/04/DSC_8307.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4085",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "GYM HOODY",
+          "actual": "GYM HOODY",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/gym-hoody/",
+          "actual": "https://omsight.com/product/gym-hoody/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 52.2,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2019/04/DSC_8263.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4238",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "GYM SHORTS",
+          "actual": "GYM SHORTS",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/gym-shorts/",
+          "actual": "https://omsight.com/product/gym-shorts/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 37.8,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2019/06/DSC_9187.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4420",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Cashmere Wool Jacket",
+          "actual": "Cashmere Wool Jacket",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/cashmere-wool-jacket-cobalt/",
+          "actual": "https://omsight.com/product/cashmere-wool-jacket-cobalt/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 85.5,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2023/01/wool2.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4440",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Retro Flash",
+          "actual": "Retro Flash",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/retro-flash/",
+          "actual": "https://omsight.com/product/retro-flash/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 64.8,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2019/12/фласх.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4450",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Cashmere Wool Hoodie",
+          "actual": "Cashmere Wool Hoodie",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/cashmere-wool-hoodie/",
+          "actual": "https://omsight.com/product/cashmere-wool-hoodie/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 67.5,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2019/12/DSC_9695.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4487",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "ECODOWN",
+          "actual": "ECODOWN",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/ecodown/",
+          "actual": "https://omsight.com/product/ecodown/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 71.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2019/12/DSC_9712.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4894",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Dyneema Jacket",
+          "actual": "Dyneema Jacket",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/dyneema-jacket/",
+          "actual": "https://omsight.com/product/dyneema-jacket/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 699.0,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "OutOfStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2020/02/DSC_9744READY.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "4978",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "WoolVerine Jacket",
+          "actual": "WoolVerine Jacket",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/woolverine-jacket-black/",
+          "actual": "https://omsight.com/product/woolverine-jacket-black/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 78.0,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2020/04/DSC_0510-1.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "5181",
+      "matched": true,
+      "score": 0.2857,
+      "fields": {
+        "name": {
+          "expected": "SPARK",
+          "actual": "Spark",
+          "correct": false
+        },
+        "url": {
+          "expected": "https://omsight.com/product/spark-jerseys/",
+          "actual": "https://omsight.com/product/spark-jerseys/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 35.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2020/07/DSC_0788.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "5251",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Rockit CORDURA®",
+          "actual": "Rockit CORDURA®",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/rockit-cordura/",
+          "actual": "https://omsight.com/product/rockit-cordura/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 64.8,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2020/07/DSC_0833.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "6171",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Spark Jacket",
+          "actual": "Spark Jacket",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/spark-jacket/",
+          "actual": "https://omsight.com/product/spark-jacket/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 225.0,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2021/01/DSC_9799.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "6211",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "SYMPATEX BIB PANTS",
+          "actual": "SYMPATEX BIB PANTS",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/omsight-bib-pants/",
+          "actual": "https://omsight.com/product/omsight-bib-pants/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 269.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2022/01/DSC_5949-new-genre.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "6244",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Spark 3L Water Jacket",
+          "actual": "Spark 3L Water Jacket",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/spark-3l-jacket/",
+          "actual": "https://omsight.com/product/spark-3l-jacket/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 134.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2021/01/DSC_9731.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "6341",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Core 3L SoftShell Jacket",
+          "actual": "Core 3L SoftShell Jacket",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/core-3l-softshell-jacket/",
+          "actual": "https://omsight.com/product/core-3l-softshell-jacket/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 71.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2021/02/DSC_2316logo-3.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "6471",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Nomad Ski Pants",
+          "actual": "Nomad Ski Pants",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/nomad-ski-pants/",
+          "actual": "https://omsight.com/product/nomad-ski-pants/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 197.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2021/03/DSC_2354-2.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "7058",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "SYMPATEX THE ONE PANTS",
+          "actual": "SYMPATEX THE ONE PANTS",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/sympatex-the-one-pants/",
+          "actual": "https://omsight.com/product/sympatex-the-one-pants/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 224.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2022/01/DSC_5917-web.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "7793",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Core Ripstop Shorts",
+          "actual": "Core Ripstop Shorts",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/core-ripstop-shorts/",
+          "actual": "https://omsight.com/product/core-ripstop-shorts/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 44.1,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2023/07/core1-scaled.jpg",
+          "correct": false
+        }
+      }
+    },
+    {
+      "sku": "8128",
+      "matched": true,
+      "score": 0.4286,
+      "fields": {
+        "name": {
+          "expected": "Wool Hoody",
+          "actual": "Wool Hoody",
+          "correct": true
+        },
+        "url": {
+          "expected": "https://omsight.com/product/wool-hoody-gray/",
+          "actual": "https://omsight.com/product/wool-hoody-gray/",
+          "correct": true
+        },
+        "brand": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "price": {
+          "expected": null,
+          "actual": 64.8,
+          "correct": false
+        },
+        "currency": {
+          "expected": null,
+          "actual": "EUR",
+          "correct": false
+        },
+        "availability": {
+          "expected": null,
+          "actual": "InStock",
+          "correct": false
+        },
+        "image": {
+          "expected": null,
+          "actual": "https://omsight.com/wp-content/uploads/2023/12/wool3.jpg",
+          "correct": false
+        }
+      }
+    }
+  ]
+}
