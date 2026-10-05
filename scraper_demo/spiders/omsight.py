@@ -17,69 +17,57 @@ class OmsightSpider(scrapy.Spider):
         "https://omsight.com/jackets/",
     ]
 
+    CATEGORY_LINK_LABELS: ClassVar[frozenset[str]] = frozenset(
+        {
+            "ski pants & bib’s",
+            "urban & climbing pants",
+            "urban & climbing shorts",
+            "bike pants",
+            "rain jackets",
+            "jackets",
+            "sweaters & hoodies",
+            "base layers",
+            "jerseys",
+            "pants",
+            "shorts",
+            "hats",
+        }
+    )
+
     def parse(self, response: Response) -> Iterator[scrapy.Request]:
-        """Discover product pages from the Jackets category."""
-        product_urls = response.css('a[href*="/product/"]::attr(href)').getall()
+        """Discover all product-category pages from the site navigation."""
+        for url in self._extract_category_urls(response):
+            yield scrapy.Request(
+                url,
+                callback=self.parse_category,
+            )
 
-        seen_urls: set[str] = set()
+    def parse_category(self, response: Response) -> Iterator[scrapy.Request]:
+        """Discover product pages from a product-category page."""
+        product_urls: set[str] = set()
 
-        for href in product_urls:
+        for href in response.css('a[href*="/product/"]::attr(href)').getall():
             url = response.urljoin(href).split("#", maxsplit=1)[0]
+            product_urls.add(url)
 
-            if url in seen_urls:
-                continue
-
-            seen_urls.add(url)
-
+        for url in sorted(product_urls):
             yield scrapy.Request(
                 url,
                 callback=self.parse_product,
             )
 
+        next_page = response.css(
+            "a.next.page-numbers::attr(href), a.next::attr(href)"
+        ).get()
+
+        if next_page:
+            yield scrapy.Request(
+                response.urljoin(next_page),
+                callback=self.parse_category,
+            )
+
     def parse_product(self, response: Response) -> Iterator[dict[str, Any]]:
         """Extract deterministic product data and variant data."""
-
-        """
-        self.logger.info(
-            "Product response: status=%s content_type=%s length=%s ldjson_scripts=%s",
-            response.status,
-            response.headers.get("Content-Type"),
-            len(response.text),
-            len(response.css('script[type="application/ld+json"]')),
-        )
-
-        for index, script in enumerate(
-            response.css('script[type="application/ld+json"]::text').getall(),
-            start=1,
-        ):
-            try:
-                data = json.loads(script)
-
-                if isinstance(data, dict):
-                    self.logger.info(
-                        "JSON-LD #%s: top_level_type=%r graph_types=%r",
-                        index,
-                        data.get("@type"),
-                        [
-                            item.get("@type")
-                            for item in data.get("@graph", [])
-                            if isinstance(item, dict)
-                        ],
-                    )
-                else:
-                    self.logger.info(
-                        "JSON-LD #%s: root_type=%s",
-                        index,
-                        type(data).__name__,
-                    )
-
-            except json.JSONDecodeError as exc:
-                self.logger.warning(
-                    "JSON-LD #%s: invalid JSON: %s",
-                    index,
-                    exc,
-                )
-        """
 
         product = self._extract_schema_product(response)
 
@@ -94,9 +82,30 @@ class OmsightSpider(scrapy.Spider):
 
         yield {
             **record.to_dict(),
+            "categories": self._extract_categories(response),
             "variants": self._extract_variants(response),
             "description": self._extract_description(response),
         }
+
+    @classmethod
+    def _extract_category_urls(cls, response: Response) -> list[str]:
+        """Return unique product-category URLs from the site navigation."""
+        category_urls: set[str] = set()
+
+        for link in response.css("a[href]"):
+            label = " ".join(link.css("::text").getall()).strip().casefold()
+
+            if label not in cls.CATEGORY_LINK_LABELS:
+                continue
+
+            href = link.attrib.get("href")
+
+            if not href:
+                continue
+
+            category_urls.add(response.urljoin(href).split("#", maxsplit=1)[0])
+
+        return sorted(category_urls)
 
     @staticmethod
     def _extract_schema_product(
@@ -166,21 +175,14 @@ class OmsightSpider(scrapy.Spider):
 
         name = OmsightSpider._clean_string(product.get("name"))
         url = OmsightSpider._clean_string(product.get("url")) or response_url
-
         sku = OmsightSpider._normalise_sku(product.get("sku"))
-
         brand = OmsightSpider._extract_brand(product.get("brand"))
-
         image = OmsightSpider._extract_image(product.get("image"))
-
         offer = OmsightSpider._extract_primary_offer(product.get("offers"))
-
         price = OmsightSpider._parse_price(offer.get("price") if offer else None)
-
         currency = (
             OmsightSpider._clean_string(offer.get("priceCurrency")) if offer else None
         )
-
         availability = (
             OmsightSpider._normalise_availability(offer.get("availability"))
             if offer
@@ -361,6 +363,28 @@ class OmsightSpider(scrapy.Spider):
     def _normalise_attribute_name(name: str) -> str:
         name = name.removeprefix("attribute_")
         return name.replace("-", "_")
+
+    @staticmethod
+    def _extract_categories(response: Response) -> list[str]:
+        """Extract deterministic WooCommerce product categories."""
+        categories = response.css(".product_meta .posted_in a::text").getall()
+
+        if not categories:
+            categories = response.css(".product_meta .posted_in::text").getall()
+
+        result: list[str] = []
+        seen: set[str] = set()
+
+        for value in categories:
+            category = " ".join(value.split()).strip().casefold()
+
+            if not category or category in seen:
+                continue
+
+            seen.add(category)
+            result.append(category)
+
+        return result
 
     @staticmethod
     def _extract_description(response: Response) -> str:
