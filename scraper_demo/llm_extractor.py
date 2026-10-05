@@ -58,6 +58,9 @@ class ProductLLMExtractor:
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
                 response_schema=StructuredProductAttributes,
+                automatic_function_calling=types.AutomaticFunctionCallingConfig(
+                    disable=True,
+                ),
             ),
         )
 
