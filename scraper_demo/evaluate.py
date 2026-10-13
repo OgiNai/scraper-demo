@@ -4,7 +4,7 @@ import argparse
 import json
 import math
 import re
-from collections.abc import Callable, Iterable
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -206,7 +206,7 @@ FIELD_COMPARATORS: dict[str, Callable[[Any, Any], bool]] = {
     "name": lambda expected, actual: _values_equal(
         expected,
         actual,
-        _normalize_string,
+        _normalize_case_insensitive,
     ),
     "url": lambda expected, actual: _values_equal(
         expected,
@@ -238,7 +238,7 @@ FIELD_COMPARATORS: dict[str, Callable[[Any, Any], bool]] = {
 
 
 def _index_by_sku(
-    records: Iterable[dict[str, Any]],
+    records: list[dict[str, Any]],
 ) -> tuple[dict[str, dict[str, Any]], list[str]]:
     indexed: dict[str, dict[str, Any]] = {}
     duplicates: list[str] = []
